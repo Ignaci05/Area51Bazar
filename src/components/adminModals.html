@@ -1,0 +1,346 @@
+<div class="modal fade" id="modalNuevoEmpleado" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: var(--bg-card);">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-pink">👽 Reclutar Vendedor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-nuevo-empleado">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre Completo</label>
+                        <input type="text" class="form-control" id="empNombre" placeholder="Ej. Ana Alien" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo Electrónico (Login)</label>
+                        <input type="email" class="form-control" id="empEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña Temporal</label>
+                        <input type="password" class="form-control" id="empPass" placeholder="Mínimo 6 caracteres"
+                            required minlength="6">
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" id="btn-crear-emp" class="btn btn-success">
+                            Crear Acceso
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="modal fade" id="modalNuevoProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: var(--bg-card);">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-pink">✨ Nuevo Producto en Bodega</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-nuevo-producto">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="nombreProd" placeholder="Ej. Gorra Alien Rosa"
+                            required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Categoría</label>
+                            <select class="form-select form-control" id="categoriaProd">
+                                <option value="Ropa">Ropa</option>
+                                <option value="Accesorios">Accesorios</option>
+                                <option value="Papeleria">Papelería</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Stock Inicial (Bodega)</label>
+                            <input type="number" class="form-control" id="stockBodega" placeholder="0" required min="1">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Costo (Proveedor)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="costoProd" placeholder="0.00" step="0.50">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label fw-bold text-success">Precio Venta</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="precioProd" placeholder="0.00" step="0.50"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" id="btn-guardar-prod" class="btn btn-success">
+                            Guardar en Bodega
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalTraspaso" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: var(--bg-card);">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-pink fw-bold">📦 Mover a Tienda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h4 id="traspasoNombre" class="text-center mb-3">...</h4>
+                <div class="row text-center mb-4">
+                    <div class="col border-end">
+                        <small class="text-muted">En Bodega</small>
+                        <div id="traspasoStockBodega" class="fs-4 fw-bold">0</div>
+                    </div>
+                    <div class="col">
+                        <small class="text-muted">En Tienda</small>
+                        <div id="traspasoStockTienda" class="fs-4 fw-bold">0</div>
+                    </div>
+                </div>
+                <form id="form-traspaso">
+                    <input type="hidden" id="traspasoIdProducto">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="cantTraspaso" placeholder="Cantidad" min="1"
+                            required>
+                        <label>Cantidad a Mover</label>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            Confirmar Movimiento
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAlertaGeneral" tabindex="-1" style="z-index: 1060;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div id="modalAlertaHeader" class="modal-header border-0">
+                <h5 class="modal-title fw-bold" id="modalAlertaTitulo">Mensaje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4" id="modalAlertaCuerpo"></div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" id="btnAlertaEntendido" class="btn btn-primary px-4" data-bs-dismiss="modal">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditarProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: var(--bg-card);">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-pink">✏️ Editar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-editar-producto">
+                    <input type="hidden" id="editId">
+
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="editNombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Categoría</label>
+                        <select class="form-select form-control" id="editCategoria">
+                            <option value="Ropa">Ropa</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Papeleria">Papelería</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="row mb-3 p-2 bg-light rounded border">
+                        <div class="col-12 text-center mb-2">
+                            <small class="fw-bold text-muted text-uppercase">Corrección de Inventario</small>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small">Bodega</label>
+                            <input type="number" class="form-control" id="editStockBodega" min="0" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small">Tienda</label>
+                            <input type="number" class="form-control" id="editStockTienda" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Costo (Proveedor)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="editCosto" step="0.50">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label fw-bold text-success">Precio Venta</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="editPrecio" step="0.50" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-warning text-white">
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalConfirmarEliminar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 bg-pastel-red text-white">
+                <h5 class="modal-title fw-bold">⚠️ ¿Eliminar Producto?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="bi bi-trash-fill display-1 text-danger mb-3"></i>
+                <p class="fs-5">Estás a punto de borrar permanentemente:</p>
+                <h3 class="fw-bold text-dark" id="eliminarNombreProducto">...</h3>
+                <p class="text-muted small mt-2">Esta acción no se puede deshacer y perderás el historial de este
+                    ítem.</p>
+
+                <input type="hidden" id="eliminarIdProducto">
+            </div>
+            <div class="modal-footer border-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnConfirmarBorrado" class="btn btn-danger px-4">
+                    ¡Sí, Eliminar!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditarEmpleado" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: var(--bg-card);">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-pink">✏️ Editar Vendedor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-editar-empleado">
+                    <input type="hidden" id="editEmpUid">
+
+                    <div class="mb-3">
+                        <label class="form-label">Nombre Completo</label>
+                        <input type="text" class="form-control" id="editEmpNombre" required>
+                    </div>
+
+                    <div class="alert alert-warning small">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Para cambiar correo o contraseña, el empleado debe solicitarlo o crear una cuenta nueva.
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-warning text-white">
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEliminarEmpleado" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 bg-pastel-red text-white">
+                <h5 class="modal-title fw-bold">⚠️ Despedir Empleado</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="bi bi-person-x-fill display-1 text-danger mb-3"></i>
+                <p class="fs-5">¿Estás seguro de eliminar a:</p>
+                <h3 class="fw-bold text-dark" id="eliminarEmpNombre">...</h3>
+                <p class="text-muted small mt-2">
+                    Este usuario perderá acceso al sistema inmediatamente.
+                    Sus ventas pasadas se mantendrán en el historial.
+                </p>
+                <input type="hidden" id="eliminarEmpUid">
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnConfirmarEliminarEmp" class="btn btn-danger">
+                    Sí, Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalDetalleVentas" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-pastel-green text-dark border-0">
+                <h5 class="modal-title fw-bold"><i class="bi bi-receipt"></i> Ventas de Hoy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light sticky-top">
+                            <tr>
+                                <th>Hora</th>
+                                <th>Vendedor</th>
+                                <th>Productos</th>
+                                <th class="text-end">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-detalle-ventas">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDetalleBajos" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-pastel-red text-white border-0">
+                <h5 class="modal-title fw-bold"><i class="bi bi-exclamation-triangle"></i> Reponer Inventario</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <ul class="list-group list-group-flush" id="lista-detalle-bajos">
+                    </ul>
+            </div>
+            <div class="modal-footer border-0 justify-content-center bg-light">
+                <small class="text-muted">Ve a la pestaña "Inventario" para hacer pedidos.</small>
+            </div>
+        </div>
+    </div>
+</div>

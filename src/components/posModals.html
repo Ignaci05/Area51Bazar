@@ -1,0 +1,96 @@
+<div class="modal fade" id="modalCancelarVenta" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 bg-pastel-red text-white">
+                <h5 class="modal-title fw-bold">⚠️ Cancelar Venta</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="bi bi-cart-x display-1 text-danger mb-3"></i>
+                <h4 class="fw-bold text-dark">¿Vaciar el carrito?</h4>
+                <p class="text-muted mt-2">
+                    Se eliminarán todos los productos agregados a la venta actual.
+                </p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">
+                    No, seguir vendiendo
+                </button>
+                <button type="button" id="btnConfirmarCancelar" class="btn btn-danger px-4">
+                    Sí, vaciar todo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCobrar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 bg-pastel-green text-dark">
+                <h5 class="modal-title fw-bold"><i class="bi bi-cash-coin"></i> Finalizar Venta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                
+                <div class="text-center mb-4">
+                    <small class="text-muted text-uppercase fw-bold">Total a Pagar</small>
+                    <h1 class="display-3 fw-bold text-success" id="cobroTotalDisplay">$0.00</h1>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold text-muted small">MÉTODO DE PAGO</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check input-metodo-pago" name="metodoPago" id="pagoEfectivo" value="efectivo" checked>
+                        <label class="btn btn-outline-success p-3" for="pagoEfectivo">
+                            <i class="bi bi-cash display-6 d-block mb-1"></i> Efectivo
+                        </label>
+
+                        <input type="radio" class="btn-check input-metodo-pago" name="metodoPago" id="pagoTarjeta" value="tarjeta">
+                        <label class="btn btn-outline-primary p-3" for="pagoTarjeta">
+                            <i class="bi bi-credit-card display-6 d-block mb-1"></i> Tarjeta
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card bg-light border-0 p-3 mb-3" id="panelCalculadora">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Dinero Recibido</label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text border-0 bg-white">$</span>
+                            <input type="number" class="form-control border-0" id="cobroEntregado" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">Cambio a devolver:</span>
+                        <span class="fs-4 fw-bold text-dark" id="cobroCambio">$0.00</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer border-0 justify-content-center pb-4">
+                <button type="button" id="btnConfirmarPago" class="btn btn-success btn-lg px-5 shadow-sm" disabled>
+                    CONFIRMAR VENTA
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAlertaGeneral" tabindex="-1" style="z-index: 1060;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div id="modalAlertaHeader" class="modal-header border-0">
+                <h5 class="modal-title fw-bold" id="modalAlertaTitulo">Mensaje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4" id="modalAlertaCuerpo">
+                </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" id="btnAlertaEntendido" class="btn btn-primary px-4" data-bs-dismiss="modal">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

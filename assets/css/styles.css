@@ -1,0 +1,159 @@
+:root {
+    /* --- Paleta Pastel Área 51 --- */
+    
+    /* Colores Principales */
+    --pastel-pink: #ffb7c5;      /* Rosa Cereza Pastel (Botones principales) */
+    --pastel-purple: #c9c1ff;    /* Lavanda (Acentos/Bordes) */
+    --pastel-green: #c1ffd7;     /* Menta (Botones de éxito/confirmar) */
+    
+    /* Fondos */
+    --bg-main: #fff0f5;          /* "Lavender Blush" (Fondo general rosita muy pálido) */
+    --bg-card: #ffffff;          /* Blanco puro para las tarjetas */
+    
+    /* Texto */
+    --text-main: #5d4e55;        /* Gris rosáceo oscuro (Más suave que el negro puro) */
+    --text-muted: #8b7d85;       /* Gris suave para textos secundarios */
+    
+    /* Bordes y Sombras */
+    --border-soft: #ffe4e1;      /* Rosa niebla */
+    --shadow-soft: 0 8px 24px rgba(255, 183, 197, 0.25); /* Sombra rosada suave */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Sobrescribir Componentes de Bootstrap --- */
+
+/* Tarjetas (Cards) */
+.card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-soft);
+    border-radius: 20px; /* Bordes más redondeados para el look "soft" */
+    box-shadow: var(--shadow-soft);
+}
+
+.card h1, .card h2, .card h3 {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+/* Inputs (Cajas de texto) */
+.form-control {
+    background-color: #fafafa;
+    border: 2px solid var(--border-soft);
+    color: var(--text-main);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: var(--pastel-pink);
+    box-shadow: 0 0 0 4px rgba(255, 183, 197, 0.3); /* Resplandor suave al escribir */
+    color: var(--text-main);
+}
+
+/* Botones */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Botón Primario (Rosa Pastel) */
+.btn-primary {
+    background-color: var(--pastel-pink) !important;
+    color: #fff !important; /* Blanco para que se lea bien */
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: #ff9eb0 !important; /* Un poco más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Se levanta un poquito */
+    box-shadow: 0 5px 15px rgba(255, 183, 197, 0.6);
+}
+
+/* Botón Éxito (Verde Menta - Ideal para "Ingresar" o "Vender") */
+.btn-success {
+    background-color: var(--pastel-green) !important;
+    color: #4a6b55 !important; /* Texto verde oscuro para contraste */
+}
+
+.btn-success:hover {
+    background-color: #a8f0c0 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(193, 255, 215, 0.6);
+}
+
+/* Barra de Navegación (Si la usas en los dashboards) */
+.navbar {
+    background-color: var(--bg-card) !important;
+    box-shadow: var(--shadow-soft);
+    border-bottom: 2px solid var(--pastel-purple);
+}
+
+.navbar-brand {
+    color: var(--pastel-pink) !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Texto secundario */
+.text-secondary, .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* --- Colores para Alertas (Modales) --- */
+.bg-pastel-green {
+    background-color: var(--pastel-green); /* Menta */
+    color: #4a6b55;
+}
+
+.bg-pastel-red {
+    background-color: #ffc1c1; /* Rojo pastel suave */
+    color: #8a2a2a;
+}
+
+.bg-pastel-purple {
+    background-color: var(--pastel-purple); /* Lavanda */
+    color: #4a4a8a;
+}
+
+/* Estilo para el link activo del menú */
+.nav-link.active-pastel {
+    color: var(--alien-pink) !important;
+    font-weight: 800;
+    border-bottom: 3px solid var(--alien-pink);
+}
+
+/* Ocultar secciones por defecto (Utility Class) */
+.d-none {
+    display: none !important;
+}
+
+/* Estilos para el Punto de Venta */
+.producto-card:hover {
+    transform: translateY(-5px);
+    border: 2px solid var(--pastel-pink) !important;
+    cursor: pointer;
+}
+
+.producto-card:active {
+    transform: scale(0.98);
+}
+
+/* Efecto hover para las tarjetas del dashboard */
+.shadow-sm-hover {
+    transition: all 0.3s ease;
+}
+
+.shadow-sm-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    filter: brightness(1.05); /* Un poquito más brillante */
+}
