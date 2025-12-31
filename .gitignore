@@ -1,0 +1,16 @@
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs y bases de datos locales
+*.log
+
+# Carpetas de IDEs (VS Code, etc)
+.vscode/
+.idea/
+
+# Node modules (si instalaras dependencias en el futuro)
+node_modules/
+
+# Archivos temporales
+*.tmp
