@@ -1,22 +1,15 @@
 :root {
-    /* --- Paleta Pastel Área 51 --- */
+    /* Nueva Paleta basada en el Logo */
+    --alien-pink: #FF69B4;       /* El rosa fuerte del contorno/texto */
+    --alien-light: #FFC0CB;      /* El rosa pastel de la piel/fondo */
+    --bg-card: #FFF0F5;          /* Lavanda/Rosa muy pálido para fondos */
     
-    /* Colores Principales */
-    --pastel-pink: #ffb7c5;      /* Rosa Cereza Pastel (Botones principales) */
-    --pastel-purple: #c9c1ff;    /* Lavanda (Acentos/Bordes) */
-    --pastel-green: #c1ffd7;     /* Menta (Botones de éxito/confirmar) */
+    /* Variables funcionales actualizadas */
+    --pastel-purple: #DDA0DD;
+    --pastel-green: #98FB98;
+    --pastel-red: #FFB6C1;       /* Un rojo más suave que combine */
     
-    /* Fondos */
-    --bg-main: #fff0f5;          /* "Lavender Blush" (Fondo general rosita muy pálido) */
-    --bg-card: #ffffff;          /* Blanco puro para las tarjetas */
-    
-    /* Texto */
-    --text-main: #5d4e55;        /* Gris rosáceo oscuro (Más suave que el negro puro) */
-    --text-muted: #8b7d85;       /* Gris suave para textos secundarios */
-    
-    /* Bordes y Sombras */
-    --border-soft: #ffe4e1;      /* Rosa niebla */
-    --shadow-soft: 0 8px 24px rgba(255, 183, 197, 0.25); /* Sombra rosada suave */
+    --text-dark: #4A4A4A;        /* Gris oscuro en vez de negro puro (más suave) */
 }
 
 body {
@@ -24,6 +17,10 @@ body {
     color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Ajuste general para que todo use el nuevo rosa */
+.text-pink { color: var(--alien-pink) !important; }
+.bg-pastel-pink { background-color: var(--alien-light) !important; }
 
 /* --- Sobrescribir Componentes de Bootstrap --- */
 
@@ -66,16 +63,15 @@ body {
 }
 
 /* Botón Primario (Rosa Pastel) */
+/* Botones principales con el color de la marca */
 .btn-primary {
-    background-color: var(--pastel-pink) !important;
-    color: #fff !important; /* Blanco para que se lea bien */
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    background-color: var(--alien-pink);
+    border-color: var(--alien-pink);
 }
 
 .btn-primary:hover {
-    background-color: #ff9eb0 !important; /* Un poco más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Se levanta un poquito */
-    box-shadow: 0 5px 15px rgba(255, 183, 197, 0.6);
+    background-color: #ff4da6; /* Un poco más oscuro al pasar el mouse */
+    border-color: #ff4da6;
 }
 
 /* Botón Éxito (Verde Menta - Ideal para "Ingresar" o "Vender") */
@@ -92,9 +88,7 @@ body {
 
 /* Barra de Navegación (Si la usas en los dashboards) */
 .navbar {
-    background-color: var(--bg-card) !important;
-    box-shadow: var(--shadow-soft);
-    border-bottom: 2px solid var(--pastel-purple);
+    border-bottom: 3px solid var(--alien-light) !important;
 }
 
 .navbar-brand {
